@@ -1,0 +1,319 @@
+:root {
+  color: #2d2118;
+  background: #f7f1ea;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 32px 16px;
+}
+
+.tester {
+  width: min(920px, 100%);
+  margin: 0 auto;
+}
+
+.intro {
+  margin-bottom: 24px;
+}
+
+.intro h1 {
+  margin: 0 0 8px;
+  color: #2b1609;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.05;
+}
+
+.intro p {
+  margin: 0;
+  color: #775f4d;
+  font-size: 1.05rem;
+}
+
+.form {
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+  background: #fffdf9;
+  border: 1px solid #e3d3c4;
+  border-radius: 8px;
+  box-shadow: 0 18px 55px rgba(88, 51, 24, 0.1);
+}
+
+label,
+fieldset {
+  display: grid;
+  gap: 8px;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend,
+label {
+  color: #3d291a;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid #d7c2ad;
+  border-radius: 6px;
+  padding: 11px 12px;
+  color: #2d2118;
+  background: #fffaf4;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #8a4d24;
+  outline: 3px solid rgba(138, 77, 36, 0.18);
+}
+
+.radio-group,
+.checkbox-grid,
+.quick-actions,
+.button-select {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.inline-control {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1px solid #ddcdbc;
+  border-radius: 6px;
+  color: #4a3425;
+  font-weight: 600;
+  background: #fff8ef;
+}
+
+.inline-control input {
+  width: auto;
+}
+
+.quick-actions button,
+.button-select button,
+.secondary-button,
+.remove-button {
+  border: 1px solid #cfb79f;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: #3b2618;
+  background: #fbf1e6;
+  cursor: pointer;
+}
+
+.quick-actions button:hover,
+.button-select button:hover,
+.secondary-button:hover {
+  border-color: #8a4d24;
+}
+
+.button-select .selected {
+  border-color: #6c3718;
+  color: #ffffff;
+  background: #6c3718;
+}
+
+.slots {
+  display: grid;
+  gap: 12px;
+}
+
+.slot {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+  align-items: end;
+  gap: 12px;
+}
+
+.remove-button {
+  color: #a62535;
+  border-color: #edc2c9;
+  background: #fff5f6;
+}
+
+.terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.terms input {
+  width: auto;
+  margin-top: 5px;
+}
+
+.terms a {
+  color: #7b3f1b;
+}
+
+.helper,
+.status,
+.error {
+  margin: 0;
+}
+
+.helper {
+  color: #866d58;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.status {
+  color: #7b3f1b;
+  font-weight: 700;
+}
+
+.error {
+  color: #b42334;
+  font-weight: 700;
+}
+
+.ai-action {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ai-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  min-height: 44px;
+  border: 1px solid #d8c5b2;
+  border-radius: 999px;
+  padding: 10px 18px 10px 12px;
+  color: #4a2a15;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(88, 51, 24, 0.12);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.ai-button:hover {
+  border-color: #8a4d24;
+  background: #fff8ef;
+}
+
+.ai-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.ai-spark,
+.ai-output-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #ffffff;
+  background: linear-gradient(135deg, #5a2d14, #b47645);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.ai-output {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid #dfcbb7;
+  border-radius: 8px;
+  background: #fffaf4;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.ai-output-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-output h2 {
+  margin: 0;
+  color: #2b1609;
+  font-size: 1.05rem;
+}
+
+.ai-summary,
+.ai-range,
+.ai-reason {
+  display: grid;
+  gap: 5px;
+}
+
+.ai-summary p,
+.ai-range span,
+.ai-reason span {
+  margin: 0;
+  color: #806753;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.ai-summary strong {
+  color: #2b1609;
+  font-size: 1.45rem;
+  line-height: 1.15;
+}
+
+.ai-range p,
+.ai-reason p {
+  margin: 0;
+  color: #3d291a;
+}
+
+@media (max-width: 680px) {
+  .page {
+    padding: 20px 12px;
+  }
+
+  .form {
+    padding: 18px;
+  }
+
+  .slot {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
