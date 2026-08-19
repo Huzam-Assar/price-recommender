@@ -1,7 +1,17 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+const LOADING_MESSAGES = [
+  "☕ Brewing your estimate... sip tight!",
+  "🧠 Putting on the thinking cap...",
+  "📚 Analyzing your tuition requirements...",
+  "🧮 Crunching the numbers...",
+  "🤔 Hmm... this one needs some thinking.",
+  "💰 Finding the sweet spot...",
+  "🎯 Almost there... aiming for the perfect estimate!",
+  "🚀 Your price estimate is on its way!"
+];
 
 const initialForm = {
   country: "Pakistan",
@@ -25,11 +35,27 @@ function App() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
 
   const selectedDaysLabel = useMemo(() => {
     if (form.preferredDays.length === 0) return "No days selected";
     return form.preferredDays.join(", ");
   }, [form.preferredDays]);
+
+  useEffect(() => {
+    if (!isLoading) {
+      setLoadingMessageIndex(0);
+      return undefined;
+    }
+
+    const messageTimer = window.setInterval(() => {
+      setLoadingMessageIndex((currentIndex) =>
+        currentIndex === LOADING_MESSAGES.length - 1 ? currentIndex : currentIndex + 1
+      );
+    }, 2000);
+
+    return () => window.clearInterval(messageTimer);
+  }, [isLoading]);
 
   const updateField = (field, value) => {
     setForm((current) => ({ ...current, [field]: value }));
@@ -323,7 +349,7 @@ function App() {
             </label>
 
             {error && <p className="error">{error}</p>}
-            {isLoading && <p className="status">AI is analyzing your requirements...</p>}
+            {isLoading && <p className="status">{LOADING_MESSAGES[loadingMessageIndex]}</p>}
 
             <div className="ai-action">
               <button type="submit" className="ai-button" disabled={isLoading}>
